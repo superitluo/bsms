@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.graduate.bsms.mapper.PublishMapper">
+
+    <select id="queryUsablePublishList" parameterType="com.graduate.bsms.pojo.Page" resultType="Publish">
+        select *
+        from bsms.Publishs
+        where publishs.state=0
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+
+
+    <select id="queryUnusablePublishList" parameterType="com.graduate.bsms.pojo.Page" resultType="Publish">
+        select *
+        from bsms.Publishs
+        where publishs.state=1
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+
+
+    <update id="removePublishById" parameterType="Integer">
+        update bsms.publishs
+        set publishs.state=1,removeTime=NOW()
+        where publishId=#{publishId}
+    </update>
+
+
+    <insert id="addPublish" parameterType="Publish">
+        insert into publishs(publishName,addTime)
+        values (#{publishName},NOW());
+    </insert>
+
+    <select id="queryUsablePublishTotal" resultType="Integer">
+        select count(publishId)
+        from bsms.publishs
+        where publishs.state=0
+    </select>
+    <select id="queryUnusablePublishTotal" resultType="Integer">
+        select count(publishId)
+        from bsms.publishs
+        where publishs.state=1
+    </select>
+    <update id="removeAllPublish">
+        update bsms.publishs
+        set publishs.state=1,removeTime=NOW()
+        where publishs.state=0 or 1
+    </update>
+    <update id="addAllPublish">
+        update bsms.publishs
+        set publishs.state=0
+        where publishs.state=0 or 1
+    </update>
+    <update id="setToUsable" parameterType="Integer">
+        update bsms.publishs
+        set publishs.state=0
+        where publishId=#{publishId}
+    </update>
+    <update id="setToUnusable" parameterType="Integer">
+        update bsms.publishs
+        set publishs.state=1
+        where publishId=#{publishId}
+    </update>
+
+
+    <select id="queryAllPublish" resultType="Publish">
+        select *
+        from bsms.Publishs
+        where state=0
+    </select>
+
+</mapper>
+

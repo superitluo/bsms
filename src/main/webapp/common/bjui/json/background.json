@@ -1,0 +1,172 @@
+[
+  {
+    "name": "图书管理",
+    "children": [
+      {
+        "id": "bookManager",
+        "name": "图书基本信息管理",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "图书库存管理",
+    "children": [
+      {
+        "id": "bookManager",
+        "name": "入库",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "bookManager",
+        "name": "图书库存信息",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "bookManager",
+        "name": "缺货预警",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "销售管理",
+    "children": [
+      {
+        "id": "salesManager",
+        "name": "销售订单管理",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesCount",
+        "name": "销售统计",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "数据分析",
+    "children": [
+      {
+        "id": "salesManager",
+        "name": "销量分析",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesManager",
+        "name": "销售额分析",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesManager",
+        "name": "收入分析",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesManager",
+        "name": "图书销量排行版",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesCount",
+        "name": "会员消费情况分析",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "会员管理",
+    "children": [
+      {
+        "id": "customerManager",
+        "name": "会员基本信息管理",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "cardManager",
+        "name": "会员卡管理",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "cardTypeManager",
+        "name": "会员卡类型管理",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "用户管理",
+    "children": [
+      {
+        "id": "userManager",
+        "name": "用户基本信息管理",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "角色管理",
+    "children": [
+      {
+        "id": "roleManager",
+        "name": "角色管理",
+        "target": "navtab",
+        "url": "role/showIndex"
+      }
+    ]
+  },
+  {
+    "name": "数据字典管理",
+    "children": [
+      {
+        "id": "bookTypeManager",
+        "name": "图书类型管理",
+        "target": "navtab",
+        "url": "bookType/index"
+      },
+      {
+        "id": "publishManager",
+        "name": "图书出版社管理",
+        "target": "navtab",
+        "url": "publish/index"
+      }
+    ]
+  },
+  {
+    "name": "系统日志",
+    "children": [
+      {
+        "id": "logManager",
+        "name": "日志查询",
+        "target": "navtab",
+        "url": "bookType/index"
+      }
+    ]
+  },
+  {
+    "name": "系统管理",
+    "children": [
+      {
+        "id": "systemManager",
+        "name": "系统参数管理",
+        "target": "navtab",
+        "url": "bookType/index"
+      }
+    ]
+  }
+]

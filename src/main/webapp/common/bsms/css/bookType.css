@@ -1,0 +1,68 @@
+
+.my-head {
+    display: inline-block;
+    background: #f0f0f0;
+    margin-left: 5%;
+    margin-top: 20px;
+    height: 50px;
+    width: 90%;
+    padding: 10px;
+}
+
+.my-content {
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 20px;
+    height: 80%;
+    width: 90%;
+}
+
+.left-table {
+    display: inline-block;
+    float: left;
+
+    height: 100%;
+    width: 40%;
+}
+
+.bt-items {
+    display: inline-block;
+    text-align: center;
+    margin-left: 5%;
+    float: left;
+    width: 10%;
+    height: 100%;
+    background: #f0f0f0;
+}
+
+.div-space {
+    height: 30%;
+}
+
+.div-items {
+    height: 40%;
+    text-align: center;
+}
+
+.div-item {
+    background: #009688;
+    padding: 20%;
+    color: white;
+    height: 25%;
+}
+
+.bt-item {
+    display: inline-block;
+    background: #009688;
+    margin-top: 20px;
+    width: 50%;
+    color: white;
+    font-size: 20px;
+}
+
+.rightTable {
+    display: inline-block;
+    float: right;
+    height: 100%;
+    width: 40%;
+}

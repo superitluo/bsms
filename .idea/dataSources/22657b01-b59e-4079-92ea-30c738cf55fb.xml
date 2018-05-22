@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bsms@rm-bp1ot5zxjybi9zefyro.mysql.rds.aliyuncs.com">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bsms">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <schema id="7" parent="1" name="bookart"/>
+    <schema id="8" parent="1" name="carparts"/>
+    <schema id="9" parent="1" name="carstop_db"/>
+    <schema id="10" parent="1" name="graduation"/>
+    <schema id="11" parent="1" name="production_ssm"/>
+    <schema id="12" parent="1" name="yygh"/>
+    <table id="13" parent="2" name="books"/>
+    <table id="14" parent="2" name="booktypes"/>
+    <table id="15" parent="2" name="cardtype"/>
+    <table id="16" parent="2" name="customer"/>
+    <table id="17" parent="2" name="logs"/>
+    <table id="18" parent="2" name="publishs"/>
+    <table id="19" parent="2" name="role"/>
+    <table id="20" parent="2" name="sales"/>
+    <table id="21" parent="2" name="user"/>
+    <column id="22" parent="13" name="bookId">
+      <Position>1</Position>
+      <Comment>图书id</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="13" name="isbn">
+      <Position>2</Position>
+      <Comment>国际标准书号（isbn）</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="13" name="bookName">
+      <Position>3</Position>
+      <Comment>图书名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="25" parent="13" name="author">
+      <Position>4</Position>
+      <Comment>图书作者</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="26" parent="13" name="publishId">
+      <Position>5</Position>
+      <Comment>图书出版社Id</Comment>
+      <DataType>int(5)|0</DataType>
+    </column>
+    <column id="27" parent="13" name="typeId">
+      <Position>6</Position>
+      <Comment>类型Id</Comment>
+      <DataType>int(5)|0</DataType>
+    </column>
+    <column id="28" parent="13" name="blurb">
+      <Position>7</Position>
+      <Comment>图书简介</Comment>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="29" parent="13" name="imageUrl1">
+      <Position>8</Position>
+      <Comment>图书图片1</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="30" parent="13" name="imageUrl2">
+      <Position>9</Position>
+      <Comment>图书图片2</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="31" parent="13" name="imageUrl3">
+      <Position>10</Position>
+      <Comment>图书图片3</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="32" parent="13" name="bookPrice">
+      <Position>11</Position>
+      <Comment>图书价格</Comment>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="33" parent="13" name="addTime">
+      <Position>13</Position>
+      <Comment>添加时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="34" parent="13" name="removeTime">
+      <Position>14</Position>
+      <Comment>移除时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="35" parent="13" name="state">
+      <Position>15</Position>
+      <Comment>图书状态（0:未移出；1：已经移出）</Comment>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="36" parent="13" name="number">
+      <Position>12</Position>
+      <Comment>图书数量</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <key id="37" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bookId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="14" name="bookTypeId">
+      <Position>1</Position>
+      <Comment>图书类型id</Comment>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="14" name="bookTypeName">
+      <Position>2</Position>
+      <Comment>图书类型名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="40" parent="14" name="addTime">
+      <Position>3</Position>
+      <Comment>添加时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="41" parent="14" name="removeTime">
+      <Position>4</Position>
+      <Comment>移出时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="42" parent="14" name="state">
+      <Position>5</Position>
+      <Comment>图书类型状态（0:未移出；1：已经移出）</Comment>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="43" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bookTypeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="15" name="name">
+      <Position>2</Position>
+      <Comment>类型名称</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="46" parent="15" name="discount">
+      <Position>3</Position>
+      <Comment>折扣</Comment>
+      <DataType>double(4)|0</DataType>
+      <DefaultExpression>&apos;10&apos;</DefaultExpression>
+    </column>
+    <column id="47" parent="15" name="status">
+      <Position>4</Position>
+      <Comment>状态{0:&apos;无效&apos;，1:有效}</Comment>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <key id="48" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="16" name="id">
+      <Position>1</Position>
+      <Comment>id</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="16" name="name">
+      <Position>2</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="51" parent="16" name="gender">
+      <Position>3</Position>
+      <Comment>性别：{0，‘女’}，{1，‘男’}</Comment>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="52" parent="16" name="phone">
+      <Position>4</Position>
+      <Comment>手机号</Comment>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="53" parent="16" name="address">
+      <Position>5</Position>
+      <Comment>地址</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="54" parent="16" name="birthday">
+      <Position>6</Position>
+      <Comment>生日</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="55" parent="16" name="cardNumber">
+      <Position>7</Position>
+      <Comment>卡号</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="56" parent="16" name="cardTypeId">
+      <Position>8</Position>
+      <Comment>会员卡类型id</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="57" parent="16" name="creatUserId">
+      <Position>9</Position>
+      <Comment>创建者id</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="58" parent="16" name="creatTime">
+      <Position>10</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="59" parent="16" name="updateUserId">
+      <Position>11</Position>
+      <Comment>更新者</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="60" parent="16" name="updateTime">
+      <Position>12</Position>
+      <Comment>更新时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="61" parent="16" name="status">
+      <Position>13</Position>
+      <Comment>状态{0:&apos;无效&apos;，1:有效}</Comment>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <key id="62" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="17" name="logId">
+      <Position>1</Position>
+      <Comment>日志id</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="17" name="operationType">
+      <Position>2</Position>
+      <Comment>操作类型</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="65" parent="17" name="operationResult">
+      <Position>3</Position>
+      <Comment>操作结果</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="66" parent="17" name="operationUserId">
+      <Position>4</Position>
+      <Comment>操作者</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="67" parent="17" name="ip">
+      <Position>5</Position>
+      <Comment>ip地址</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="68" parent="17" name="operationDate">
+      <Position>6</Position>
+      <Comment>操作时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="69" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>logId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="70" parent="18" name="publishId">
+      <Position>1</Position>
+      <Comment>图书出版设Id</Comment>
+      <DataType>int(5)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="71" parent="18" name="publishName">
+      <Position>2</Position>
+      <Comment>图书名称</Comment>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="72" parent="18" name="addTime">
+      <Position>3</Position>
+      <Comment>添加时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="73" parent="18" name="removeTime">
+      <Position>4</Position>
+      <Comment>移出时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="74" parent="18" name="state">
+      <Position>5</Position>
+      <Comment>出版社状态（0:未移出；1：已经移出）</Comment>
+      <DataType>int(2)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="75" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>publishId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="76" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="77" parent="19" name="roleCode">
+      <Position>2</Position>
+      <Comment>角色编码</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="78" parent="19" name="roleName">
+      <Position>3</Position>
+      <Comment>角色名称</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="79" parent="19" name="createdBy">
+      <Position>4</Position>
+      <Comment>创建者</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="80" parent="19" name="creationDate">
+      <Position>5</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="81" parent="19" name="modifyBy">
+      <Position>6</Position>
+      <Comment>修改者</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="82" parent="19" name="modifyDate">
+      <Position>7</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="83" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="20" name="id">
+      <Position>1</Position>
+      <Comment>库存id</Comment>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="20" name="bookId">
+      <Position>2</Position>
+      <Comment>图书id</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="86" parent="20" name="gkCardNumber">
+      <Position>3</Position>
+      <Comment>顾客卡号</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="87" parent="20" name="number">
+      <Position>4</Position>
+      <Comment>在库数量</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="88" parent="20" name="price">
+      <Position>5</Position>
+      <Comment>单价</Comment>
+      <DataType>double(10)|0</DataType>
+    </column>
+    <column id="89" parent="20" name="totalPrice">
+      <Position>6</Position>
+      <Comment>总价</Comment>
+      <DataType>double(10)|0</DataType>
+    </column>
+    <column id="90" parent="20" name="payStatus">
+      <Position>7</Position>
+      <Comment>支付状态0已支付1未支付</Comment>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="91" parent="20" name="shipStatus">
+      <Position>8</Position>
+      <Comment>发货状态0已发货1未发货</Comment>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="92" parent="20" name="returns">
+      <Position>9</Position>
+      <Comment>是否退货0已退货1未退货</Comment>
+      <DataType>int(3)|0</DataType>
+    </column>
+    <column id="93" parent="20" name="createuser">
+      <Position>10</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="94" parent="20" name="createtime">
+      <Position>11</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="95" parent="20" name="updateuser">
+      <Position>12</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="96" parent="20" name="updatetime">
+      <Position>13</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="97" parent="20" name="status">
+      <Position>14</Position>
+      <Comment>状态{0:&apos;无效&apos;，1:有效}</Comment>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <key id="98" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="99" parent="21" name="id">
+      <Position>1</Position>
+      <Comment>主键ID</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="100" parent="21" name="gender">
+      <Position>5</Position>
+      <Comment>性别（1:女、 2:男）</Comment>
+      <DataType>int(10)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="101" parent="21" name="phone">
+      <Position>7</Position>
+      <Comment>手机</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="102" parent="21" name="address">
+      <Position>8</Position>
+      <Comment>地址</Comment>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="103" parent="21" name="birthday">
+      <Position>6</Position>
+      <Comment>出生日期</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="104" parent="21" name="userCode">
+      <Position>2</Position>
+      <Comment>用户编码</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="105" parent="21" name="userName">
+      <Position>3</Position>
+      <Comment>用户名称</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="106" parent="21" name="userPassword">
+      <Position>4</Position>
+      <Comment>用户密码</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="107" parent="21" name="userRole">
+      <Position>9</Position>
+      <Comment>用户角色（取自角色表-角色id）</Comment>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="108" parent="21" name="createdBy">
+      <Position>10</Position>
+      <Comment>创建者（userId）</Comment>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="109" parent="21" name="creationDate">
+      <Position>11</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="110" parent="21" name="modifyBy">
+      <Position>12</Position>
+      <Comment>更新者（userId）</Comment>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="111" parent="21" name="modifyDate">
+      <Position>13</Position>
+      <Comment>更新时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="112" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

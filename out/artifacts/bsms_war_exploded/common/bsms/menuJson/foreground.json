@@ -1,0 +1,41 @@
+[
+  {
+    "name": "销售管理",
+    "children": [
+      {
+        "id": "salesManager",
+        "name": "销售订单管理",
+        "target": "navtab",
+        "url": "sales/showIndex"
+      },
+      {
+        "id": "salesCount",
+        "name": "销售统计",
+        "target": "navtab",
+        "url": "sales/showCount"
+      }
+    ]
+  },
+  {
+    "name": "系统日志",
+    "children": [
+      {
+        "id": "logManager",
+        "name": "日志查询",
+        "target": "navtab",
+        "url": "logs/showIndex"
+      }
+    ]
+  },
+  {
+    "name": "系统管理",
+    "children": [
+      {
+        "id": "salesCount",
+        "name": "系统参数管理",
+        "target": "navtab",
+        "url": "bookType/index"
+      }
+    ]
+  }
+]

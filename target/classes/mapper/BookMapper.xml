@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.graduate.bsms.mapper.BookMapper">
+
+    <!-- 查询未被删除的图书集合 -->
+    <select id="queryBookList"
+            resultType="Book">
+        SELECT
+        books.bookId,
+        books.isbn,
+        books.bookName,
+        books.author,
+        books.publishId,
+        books.typeId,
+        books.blurb,
+        books.imageUrl1,
+        books.imageUrl2,
+        books.imageUrl3,
+        books.bookPrice,
+        books.addTime,
+        books.removeTime,
+        books.state
+        FROM
+        bsms.books
+        where state=0
+        <if test="bookName!= null">
+            and (bookName LIKE concat(concat('%', #{bookName}), '%')
+            OR author LIKE concat(concat('%', #{bookName}), '%')
+            OR isbn LIKE concat(concat('%', #{bookName}), '%')
+            OR publishId like concat(concat('%', #{bookName}), '%')
+            OR typeId like concat(concat('%', #{bookName}), '%'))
+        </if>
+        LIMIT
+        #{page.pageStart},#{page.pageSize}
+    </select>
+    <insert id="addBook" parameterType="com.graduate.bsms.pojo.Book">
+        insert into books(
+        books.bookId
+        ,books.isbn
+        ,books.bookName
+        ,books.author
+        ,books.publishId
+        ,books.typeId
+        ,books.blurb
+        ,books.imageUrl1
+        ,books.imageUrl2
+        ,books.imageUrl3
+        ,books.bookPrice
+        ,books.addTime
+        )values(
+        #{bookId}
+        ,#{isbn}
+        ,#{bookName}
+        ,#{author}
+        ,#{publishId}
+        ,#{typeId}
+        ,#{blurb}
+        ,#{imageUrl1}
+        ,#{imageUrl2}
+        ,#{imageUrl3}
+        ,#{bookPrice}
+        ,NOW())
+    </insert>
+    <!-- 查询未删除图书总数 -->
+    <select id="queryBookTotal" resultType="Integer">
+        select count(bookId)
+        from
+        bsms.books
+        where state=0
+    </select>
+    <select id="queryBookById" parameterType="String" resultType="Book">
+        select
+        books.bookId
+        ,books.addTime
+        ,books.isbn
+        ,books.bookName
+        ,books.author
+        ,books.publishId
+        ,books.typeId
+        ,books.blurb
+        ,books.imageUrl1
+        ,books.imageUrl2
+        ,books.imageUrl3
+        ,books.bookPrice
+        from bsms.books
+        where bookId=#{bookId}
+    </select>
+    <update id="deleteBook" parameterType="String">
+        update bsms.books
+        set state=1,removeTime=NOW()
+        where bookId= #{bookId}
+    </update>
+    <update id="updateBook" parameterType="book">
+        UPDATE books set
+        isbn=#{isbn}
+        ,bookName=#{bookName}
+        ,author=#{author}
+        ,publishId=#{publishId}
+        ,typeId=#{typeId}
+        ,blurb=#{blurb}
+        ,imageUrl1=#{imageUrl1}
+        ,imageUrl2=#{imageUrl2}
+        ,imageUrl3=#{imageUrl3}
+        ,bookPrice=#{bookPrice}
+        WHERE
+        books.bookId=#{bookId}
+    </update>
+
+    <select id="queryNameById" resultType="com.graduate.bsms.pojo.KeyAndValue">
+        select bookId mkey ,bookName mvalue
+        from books
+    </select>
+</mapper>
+

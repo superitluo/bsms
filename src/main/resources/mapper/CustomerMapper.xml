@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.graduate.bsms.mapper.CustomerMapper">
+    <resultMap id="BaseResultMap" type="com.graduate.bsms.pojo.Customer">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="INTEGER"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
+        <result column="cardNumber" property="cardnumber" jdbcType="VARCHAR"/>
+        <result column="cardTypeId" property="cardtypeid" jdbcType="VARCHAR"/>
+        <result column="creatUserId" property="creatuserid" jdbcType="VARCHAR"/>
+        <result column="creatTime" property="creattime" jdbcType="TIMESTAMP"/>
+        <result column="updateUserId" property="updateuserid" jdbcType="VARCHAR"/>
+        <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, gender, phone, address, birthday, cardNumber, cardTypeId, creatUserId, 
+    creatTime, updateUserId, updateTime, status
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from customer
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        update customer
+        <set>
+            status = 1,
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.graduate.bsms.pojo.Customer">
+    insert into customer (id, name, gender, 
+      phone, address, birthday, 
+      cardNumber, cardTypeId, creatUserId, 
+      creatTime, status)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{cardnumber,jdbcType=VARCHAR}, #{cardtypeid,jdbcType=VARCHAR}, #{creatuserid,jdbcType=VARCHAR}, 
+      NOW(),0)
+  </insert>
+    <insert id="insertSelective" parameterType="com.graduate.bsms.pojo.Customer">
+        insert into customer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="cardnumber != null">
+                cardNumber,
+            </if>
+            <if test="cardtypeid != null">
+                cardTypeId,
+            </if>
+            <if test="creatuserid != null">
+                creatUserId,
+            </if>
+            <if test="creattime != null">
+                creatTime,
+            </if>
+            <if test="updateuserid != null">
+                updateUserId,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cardnumber != null">
+                #{cardnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="cardtypeid != null">
+                #{cardtypeid,jdbcType=VARCHAR},
+            </if>
+            <if test="creatuserid != null">
+                #{creatuserid,jdbcType=VARCHAR},
+            </if>
+            <if test="creattime != null">
+                #{creattime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateuserid != null">
+                #{updateuserid,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduate.bsms.pojo.Customer">
+        update customer
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cardnumber != null">
+                cardNumber = #{cardnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="cardtypeid != null">
+                cardTypeId = #{cardtypeid,jdbcType=VARCHAR},
+            </if>
+            <if test="creatuserid != null">
+                creatUserId = #{creatuserid,jdbcType=VARCHAR},
+            </if>
+            <if test="creattime != null">
+                creatTime = #{creattime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateuserid != null">
+                updateUserId = #{updateuserid,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.graduate.bsms.pojo.Customer">
+    update customer
+    set name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      cardNumber = #{cardnumber,jdbcType=VARCHAR},
+      cardTypeId = #{cardtypeid,jdbcType=VARCHAR},
+      updateUserId = #{updateuserid,jdbcType=VARCHAR},
+      updateTime = NOW(),
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+    <select id="selectList" resultMap="BaseResultMap" parameterType="com.graduate.bsms.pojo.Customer">
+        select *
+        from bsms.customer
+        WHERE status=0
+        <if test="name != null">
+            and (name LIKE concat(concat('%', #{name}), '%')
+            OR cardnumber LIKE concat(concat('%', #{name}), '%')
+            OR phone LIKE concat(concat('%', #{name}), '%')
+            OR address like concat(concat('%', #{name}), '%'))
+        </if>
+        LIMIT
+        #{page.pageStart},#{page.pageSize}
+    </select>
+    <!-- 查询未删除图书总数 -->
+    <select id="queryCustomerTotal" resultType="Integer">
+        select count(id)
+        from
+        bsms.customer
+        where status=0
+    </select>
+    <select id="queryNameById" resultType="com.graduate.bsms.pojo.KeyAndValue">
+        select cardNumber mkey ,name mvalue
+        from customer
+    </select>
+</mapper>

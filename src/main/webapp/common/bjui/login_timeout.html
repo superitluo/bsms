@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="include/includetag.jsp" %>
+<script type="text/javascript">
+    j_login_changecode()
+
+    $('#j_login_captcha_img').click(function () {
+        j_login_changecode()
+    })
+
+    function j_login_changecode() {
+        $('#j_login_captcha_img').attr('src', 'login/getCaptcha?t=' + new Date())
+    }
+
+    function sys_login_submit() {
+        var key = CryptoJS.enc.Base64.parse($('#j_login_password_key').val())
+        var iv = CryptoJS.enc.Latin1.parse('0102030405060708')
+        var password = CryptoJS.AES.encrypt($('#j_login_password').val(), key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        })
+
+        $('#j_login_password_hash').val(password)
+        $('#j_login_form').submit()
+
+        $('#j_login_captcha').val('')
+        j_login_changecode()
+    }
+
+    $('#j_login_captcha').bind('keyup', function (event) {
+        if (event.keyCode == 13) {
+            sys_login_submit()
+        }
+    })
+</script>
+<div class="bjui-pageContent">
+    <form action="login/ajaxlogin" data-toggle="validate" method="post" id="j_login_form" class="bjui-form col-1"
+          data-close-current="true">
+        <input type="hidden" id="j_login_password_key" name="" value="${randomKey }">
+        <input type="hidden" id="j_login_password_hash" name="password">
+        <div class="row">
+            <label class="form-label">登录账户</label>
+            <div class="form-input required">
+                <input type="text" data-rule="required" id="j_login_username" name="username" value="${username }"
+                       placeholder="身份证号、职工号">
+            </div>
+            <p>&nbsp;</p>
+            <label class="form-label">登录密码</label>
+            <div class="form-input required">
+                <input type="password" data-rule="required" id="j_login_password" name="" value="" placeholder="密码">
+            </div>
+            <p>&nbsp;</p>
+            <label class="form-label">验证码</label>
+            <div class="form-input required">
+                <input type="text" name="captcha" id="j_login_captcha" value="" placeholder="验证码" size="6">
+                <img id="j_login_captcha_img" alt="点击更换" title="点击更换" src=""/>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li>
+            <button type="button" class="btn-close" data-icon="remove">取消</button>
+        </li>
+        <li>
+            <button type="button" onclick="sys_login_submit()" class="btn-default" data-icon="check">登录</button>
+        </li>
+    </ul>
+</div>

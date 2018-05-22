@@ -1,0 +1,17 @@
+.baseIfo {
+    margin-top: 10px;
+}
+
+.base {
+    margin-bottom: 0px;
+}
+
+.content {
+    margin-top: 40px;
+    padding: 0 10% 0 10%;
+}
+
+.blurb {
+    background-color: rgba(238, 238, 238, 0.65);
+    padding: 30px;
+}

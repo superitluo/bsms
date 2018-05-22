@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.graduate.bsms.mapper.LogsMapper">
+    <resultMap id="BaseResultMap" type="com.graduate.bsms.pojo.Logs">
+        <id column="logId" property="logid" jdbcType="INTEGER"/>
+        <result column="operationType" property="operationtype" jdbcType="VARCHAR"/>
+        <result column="operationResult" property="operationresult" jdbcType="VARCHAR"/>
+        <result column="operationUserId" property="operationuserid" jdbcType="VARCHAR"/>
+        <result column="ip" property="ip" jdbcType="VARCHAR"/>
+        <result column="operationDate" property="operationdate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        logId, operationType, operationResult, operationUserId, ip, operationDate
+    </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        *
+        from logs
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from logs
+        where logId = #{logid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from logs
+        where logId = #{logid,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.graduate.bsms.pojo.Logs">
+        insert into logs (logId, operationType, operationResult,
+        operationUserId, ip, operationDate
+        )
+        values (#{logid,jdbcType=INTEGER}, #{operationtype,jdbcType=VARCHAR}, #{operationresult,jdbcType=VARCHAR},
+        #{operationuserid,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{operationdate,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.graduate.bsms.pojo.Logs">
+        insert into logs
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="logid != null">
+                logId,
+            </if>
+            <if test="operationtype != null">
+                operationType,
+            </if>
+            <if test="operationresult != null">
+                operationResult,
+            </if>
+            <if test="operationuserid != null">
+                operationUserId,
+            </if>
+            <if test="ip != null">
+                ip,
+            </if>
+            <if test="operationdate != null">
+                operationDate,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="logid != null">
+                #{logid,jdbcType=INTEGER},
+            </if>
+            <if test="operationtype != null">
+                #{operationtype,jdbcType=VARCHAR},
+            </if>
+            <if test="operationresult != null">
+                #{operationresult,jdbcType=VARCHAR},
+            </if>
+            <if test="operationuserid != null">
+                #{operationuserid,jdbcType=INTEGER},
+            </if>
+            <if test="ip != null">
+                #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="operationdate != null">
+                #{operationdate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduate.bsms.pojo.Logs">
+        update logs
+        <set>
+            <if test="operationtype != null">
+                operationType = #{operationtype,jdbcType=VARCHAR},
+            </if>
+            <if test="operationresult != null">
+                operationResult = #{operationresult,jdbcType=VARCHAR},
+            </if>
+            <if test="operationuserid != null">
+                operationUserId = #{operationuserid,jdbcType=INTEGER},
+            </if>
+            <if test="ip != null">
+                ip = #{ip,jdbcType=VARCHAR},
+            </if>
+            <if test="operationdate != null">
+                operationDate = #{operationdate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where logId = #{logid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.graduate.bsms.pojo.Logs">
+        update logs
+        set operationType = #{operationtype,jdbcType=VARCHAR},
+        operationResult = #{operationresult,jdbcType=VARCHAR},
+        operationUserId = #{operationuserid,jdbcType=INTEGER},
+        ip = #{ip,jdbcType=VARCHAR},
+        operationDate = #{operationdate,jdbcType=TIMESTAMP}
+        where logId = #{logid,jdbcType=INTEGER}
+    </update>
+</mapper>

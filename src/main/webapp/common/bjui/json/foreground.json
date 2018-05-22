@@ -1,0 +1,76 @@
+[
+  {
+    "name": "销售管理",
+    "children": [
+      {
+        "id": "salesManager",
+        "name": "销售订单管理",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesCount",
+        "name": "销售统计",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "数据分析",
+    "children": [
+      {
+        "id": "salesManager",
+        "name": "销量分析",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesManager",
+        "name": "销售额分析",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesManager",
+        "name": "收入分析",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesManager",
+        "name": "图书销量排行版",
+        "target": "navtab",
+        "url": "book/index"
+      },
+      {
+        "id": "salesCount",
+        "name": "会员消费情况分析",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "系统日志",
+    "children": [
+      {
+        "id": "logManager",
+        "name": "日志查询",
+        "target": "navtab",
+        "url": "bookType/index"
+      }
+    ]
+  },
+  {
+    "name": "系统管理",
+    "children": [
+      {
+        "id": "systemManager",
+        "name": "系统参数管理",
+        "target": "navtab",
+        "url": "bookType/index"
+      }
+    ]
+  }
+]

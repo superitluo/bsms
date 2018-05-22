@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.graduate.bsms.mapper.BookTypeMapper">
+
+    <select id="queryUsableBookTypeList" parameterType="com.graduate.bsms.pojo.Page" resultType="BookType">
+        select *
+        from bsms.BookTypes
+        where bookTypes.state=0
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+
+
+    <select id="queryUnusableBookTypeList" parameterType="com.graduate.bsms.pojo.Page" resultType="BookType">
+        select *
+        from bsms.BookTypes
+        where bookTypes.state=1
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+
+
+    <update id="removeBookTypeById" parameterType="Integer">
+        update bsms.bookTypes
+        set bookTypes.state=1,removeTime=NOW()
+        where bookTypeId=#{bookTypeId}
+    </update>
+
+
+    <insert id="addBookType" parameterType="BookType">
+        insert into bookTypes(bookTypeName,addTime)
+        values (#{bookTypeName},NOW());
+    </insert>
+
+    <select id="queryUsableBookTotal" resultType="Integer">
+        select count(bookTypeId)
+        from bsms.bookTypes
+        where bookTypes.state=0
+    </select>
+    <select id="queryUnusableBookTotal" resultType="Integer">
+        select count(bookTypeId)
+        from bsms.bookTypes
+        where bookTypes.state=1
+    </select>
+    <update id="removeAllBookType">
+        update bsms.bookTypes
+        set bookTypes.state=1,removeTime=NOW()
+        where bookTypes.state=0 or 1
+    </update>
+    <update id="addAllBookType">
+        update bsms.bookTypes
+        set bookTypes.state=0
+        where bookTypes.state=0 or 1
+    </update>
+    <update id="setToUsable" parameterType="Integer">
+        update bsms.bookTypes
+        set bookTypes.state=0
+        where bookTypeId=#{bookTypeId}
+    </update>
+    <update id="setToUnusable" parameterType="Integer">
+        update bsms.bookTypes
+        set bookTypes.state=1
+        where bookTypeId=#{bookTypeId}
+    </update>
+
+
+    <select id="queryAllBookType" resultType="BookType">
+        select *
+        from bsms.BookTypes
+    </select>
+
+</mapper>
+

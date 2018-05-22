@@ -1,0 +1,119 @@
+[
+  {
+    "name": "图书管理",
+    "children": [
+      {
+        "id": "bookManager",
+        "name": "图书基本信息管理",
+        "target": "navtab",
+        "url": "book/index"
+      }
+    ]
+  },
+  {
+    "name": "销售管理",
+    "children": [
+      {
+        "id": "salesManager",
+        "name": "销售订单管理",
+        "target": "navtab",
+        "url": "sales/showIndex"
+      },
+      {
+        "id": "salesCount",
+        "name": "销售统计",
+        "target": "navtab",
+        "url": "sales/showCount"
+      }
+    ]
+  },
+  {
+    "name": "数据分析",
+    "children": [
+      {
+        "id": "salesCount",
+        "name": "销量分析",
+        "target": "navtab",
+        "url": "sales/showCount"
+      }
+    ]
+  },
+  {
+    "name": "会员管理",
+    "children": [
+      {
+        "id": "customerManager",
+        "name": "会员基本信息管理",
+        "target": "navtab",
+        "url": "customer/index"
+      },
+      {
+        "id": "cardTypeManager",
+        "name": "会员卡类型管理",
+        "target": "navtab",
+        "url": "cardType/index"
+      }
+    ]
+  },
+  {
+    "name": "用户管理",
+    "children": [
+      {
+        "id": "userManager",
+        "name": "用户基本信息管理",
+        "target": "navtab",
+        "url": "user/showIndex"
+      }
+    ]
+  },
+  {
+    "name": "角色管理",
+    "children": [
+      {
+        "id": "roleManager",
+        "name": "角色管理",
+        "target": "navtab",
+        "url": "role/showIndex"
+      }
+    ]
+  },
+  {
+    "name": "数据字典管理",
+    "children": [
+      {
+        "id": "bookTypeManager",
+        "name": "图书类型管理",
+        "target": "navtab",
+        "url": "bookType/index"
+      },
+      {
+        "id": "publishManager",
+        "name": "图书出版社管理",
+        "target": "navtab",
+        "url": "publish/index"
+      }
+    ]
+  },
+  {
+    "name": "系统日志",
+    "children": [
+      {
+        "id": "logManager",
+        "name": "日志查询",
+        "target": "navtab",
+        "url": "logs/showIndex"
+      }
+    ]
+  },
+  {
+    "name": "系统管理",
+    "children": [
+      {
+        "id": "systemManager",
+        "name": "系统参数管理",
+        "target": "navtab",
+        "url": "bookType/index"
+      }
+    ]
+  }
+]

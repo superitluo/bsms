@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.graduate.bsms.mapper.SalesMapper">
+    <resultMap id="BaseResultMap" type="com.graduate.bsms.pojo.Sales">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="bookId" property="bookid" jdbcType="VARCHAR"/>
+        <result column="gkCardNumber" property="gkcardnumber" jdbcType="VARCHAR"/>
+        <result column="number" property="number" jdbcType="INTEGER"/>
+        <result column="price" property="price" jdbcType="DOUBLE"/>
+        <result column="totalPrice" property="totalprice" jdbcType="DOUBLE"/>
+        <result column="payStatus" property="paystatus" jdbcType="INTEGER"/>
+        <result column="shipStatus" property="shipstatus" jdbcType="INTEGER"/>
+        <result column="returns" property="returns" jdbcType="INTEGER"/>
+        <result column="createuser" property="createuser" jdbcType="VARCHAR"/>
+        <result column="createtime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="updateuser" property="updateuser" jdbcType="VARCHAR"/>
+        <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, bookId, gkCardNumber, number, price, totalPrice, payStatus, shipStatus, returns,
+        createuser, createtime, updateuser, updatetime, status
+    </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sales
+        WHERE sales=0
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from sales
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from sales
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.graduate.bsms.pojo.Sales">
+        insert into sales (id, bookId, gkCardNumber,
+        number, price, totalPrice,
+        payStatus, shipStatus, returns,
+        createuser, createtime, updateuser,
+        updatetime, status)
+        values (#{id,jdbcType=VARCHAR}, #{bookid,jdbcType=VARCHAR}, #{gkcardnumber,jdbcType=VARCHAR},
+        #{number,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, #{totalprice,jdbcType=DOUBLE},
+        #{paystatus,jdbcType=INTEGER}, #{shipstatus,jdbcType=INTEGER}, #{returns,jdbcType=INTEGER},
+        #{createuser,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updateuser,jdbcType=VARCHAR},
+        #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.graduate.bsms.pojo.Sales">
+        insert into sales
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="bookid != null">
+                bookId,
+            </if>
+            <if test="gkcardnumber != null">
+                gkCardNumber,
+            </if>
+            <if test="number != null">
+                number,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="totalprice != null">
+                totalPrice,
+            </if>
+            <if test="paystatus != null">
+                payStatus,
+            </if>
+            <if test="shipstatus != null">
+                shipStatus,
+            </if>
+            <if test="returns != null">
+                returns,
+            </if>
+            <if test="createuser != null">
+                createuser,
+            </if>
+            <if test="createtime != null">
+                createtime,
+            </if>
+            <if test="updateuser != null">
+                updateuser,
+            </if>
+            <if test="updatetime != null">
+                updatetime,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="bookid != null">
+                #{bookid,jdbcType=VARCHAR},
+            </if>
+            <if test="gkcardnumber != null">
+                #{gkcardnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="number != null">
+                #{number,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DOUBLE},
+            </if>
+            <if test="totalprice != null">
+                #{totalprice,jdbcType=DOUBLE},
+            </if>
+            <if test="paystatus != null">
+                #{paystatus,jdbcType=INTEGER},
+            </if>
+            <if test="shipstatus != null">
+                #{shipstatus,jdbcType=INTEGER},
+            </if>
+            <if test="returns != null">
+                #{returns,jdbcType=INTEGER},
+            </if>
+            <if test="createuser != null">
+                #{createuser,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateuser != null">
+                #{updateuser,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.graduate.bsms.pojo.Sales">
+        update sales
+        <set>
+            <if test="bookid != null">
+                bookId = #{bookid,jdbcType=VARCHAR},
+            </if>
+            <if test="gkcardnumber != null">
+                gkCardNumber = #{gkcardnumber,jdbcType=VARCHAR},
+            </if>
+            <if test="number != null">
+                number = #{number,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=DOUBLE},
+            </if>
+            <if test="totalprice != null">
+                totalPrice = #{totalprice,jdbcType=DOUBLE},
+            </if>
+            <if test="paystatus != null">
+                payStatus = #{paystatus,jdbcType=INTEGER},
+            </if>
+            <if test="shipstatus != null">
+                shipStatus = #{shipstatus,jdbcType=INTEGER},
+            </if>
+            <if test="returns != null">
+                returns = #{returns,jdbcType=INTEGER},
+            </if>
+            <if test="createuser != null">
+                createuser = #{createuser,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateuser != null">
+                updateuser = #{updateuser,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.graduate.bsms.pojo.Sales">
+        update sales
+        set bookId = #{bookid,jdbcType=VARCHAR},
+        gkCardNumber = #{gkcardnumber,jdbcType=VARCHAR},
+        number = #{number,jdbcType=INTEGER},
+        price = #{price,jdbcType=DOUBLE},
+        totalPrice = #{totalprice,jdbcType=DOUBLE},
+        payStatus = #{paystatus,jdbcType=INTEGER},
+        shipStatus = #{shipstatus,jdbcType=INTEGER},
+        returns = #{returns,jdbcType=INTEGER},
+        createuser = #{createuser,jdbcType=VARCHAR},
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+        updateuser = #{updateuser,jdbcType=VARCHAR},
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+        status = #{status,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

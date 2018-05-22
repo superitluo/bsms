@@ -1,0 +1,7 @@
+#userImage nav > li > a > img {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: "http://localhost:8080/bsms/Static/image/user.jpg";
+    border-radius: 20px;
+}
